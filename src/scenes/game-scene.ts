@@ -49,7 +49,7 @@ export class GameScene extends Container {
         this.startScreen.addChild(bg);
 
         // Create title text
-        const titleText = new Text('Mind-Eye Challenge', {
+        const titleText = new Text('Mind-Eye\nChallenge', {
             fontFamily: CONFIG.ASSETS.FONTS.MAIN,
             fontSize: 48,
             fill: CONFIG.UI.COLORS.TEXT,
