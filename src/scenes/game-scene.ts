@@ -2,7 +2,6 @@ import { Container, Application, Graphics, Text } from 'pixi.js';
 import { GameState } from '../state/game-state';
 import { CONFIG } from '../config/game-config';
 import { Box } from '../types/game-types';
-import { createRectangle } from '../utils/create-rectangle';
 import { BackgroundManager } from '../managers/background-manager';
 import { Howler } from 'howler';
 
@@ -50,7 +49,7 @@ export class GameScene extends Container {
         this.startScreen.addChild(bg);
 
         // Create title text
-        const titleText = new Text('Memory Tower', {
+        const titleText = new Text('Mind-Eye Challenge', {
             fontFamily: CONFIG.ASSETS.FONTS.MAIN,
             fontSize: 48,
             fill: CONFIG.UI.COLORS.TEXT,
@@ -107,6 +106,7 @@ export class GameScene extends Container {
         // Initialize Howler context if needed
         if (!Howler.ctx) {
             // Create a temporary sound to initialize the context
+            // @ts-ignore
             const initSound = new Howl({ src: ['data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAACAAABIADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV6urq6urq6urq6urq6urq6urq6urq6urq6v////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAASDs90hvAAAAAAAAAAAAAAAAAAAA//MUZAAAAAGkAAAAAAAAA0gAAAAATEFN//MUZAMAAAGkAAAAAAAAA0gAAAAARTMu//MUZAYAAAGkAAAAAAAAA0gAAAAAOTku//MUZAkAAAGkAAAAAAAAA0gAAAAANVVV'] });
         }
 
@@ -389,9 +389,5 @@ export class GameScene extends Container {
                 }
             }
         }
-    }
-
-    public update(delta: number): void {
-        // No longer need timer update
     }
 }
