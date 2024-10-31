@@ -30,11 +30,6 @@ const initGame = async (): Promise<void> => {
     const gameScene = new GameScene(app, gameState);
     app.stage.addChild(gameScene);
 
-    // Start game loop
-    app.ticker.add((delta) => {
-        gameScene.update(delta);
-    });
-
     // Handle window resize
     window.addEventListener('resize', () => {
         const scaleX = window.innerWidth / CONFIG.GAME.WIDTH;
